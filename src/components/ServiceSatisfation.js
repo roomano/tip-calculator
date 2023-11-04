@@ -1,30 +1,30 @@
 export default function ServiceSatisfation({
   satisfaction,
-  handleSatisfation,
+  onChange,
   children,
 }) {
   return (
     <div>
-      {children}{" "}
+      {children}
       <Satisfaction
         satisfaction={satisfaction}
-        handleSatisfation={handleSatisfation}
+        onChangeSatisfation={onChange}
       ></Satisfaction>
     </div>
   );
 }
 
-function Satisfaction({ satisfaction, handleSatisfation }) {
+function Satisfaction({ satisfaction, onChangeSatisfation }) {
   return (
     <>
       <select
         value={satisfaction}
-        onChange={(e) => handleSatisfation(e.target.value)}
+        onChange={(e) => onChangeSatisfation(e.target.value)}
       >
-        <option value="dissatisfied">Dissatisfied (0%)</option>
-        <option value="okay">It was okay (5%)</option>
-        <option value="good">It was good (10%)</option>
-        <option value="amazing">Absolutely amazing (20%)</option>
+        <option value="0">Dissatisfied (0%)</option>
+        <option value="5">It was okay (5%)</option>
+        <option value="10">It was good (10%)</option>
+        <option value="20">Absolutely amazing (20%)</option>
       </select>
     </>
   );
